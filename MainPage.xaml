@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Toolkit.Charts;assembly=Syncfusion.Maui.Toolkit"
+              xmlns:myConverters="clr-namespace:AttendanceDashboard.Converters"
+             x:Class="AttendanceDashboard.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <myConverters:HoraAIconoConverter  x:Key="HoraAIconoConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding FiltrarAsistenciasCommand}" Text="Actualizar" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource Glyph="&#xE777;" Color="{AppThemeBinding Light=White}" Size="50" FontFamily="SegoeFluent"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <Grid  ColumnDefinitions="*,*,*,*" RowDefinitions="Auto,Auto,*" ColumnSpacing="20" Margin="10"  RowSpacing="10" >
+
+        <Border Grid.RowSpan="2" BackgroundColor="White" StrokeShape="RoundRectangle 5" Padding="10" Stroke="Transparent" >
+            <StackLayout HorizontalOptions="Center" >
+                <Grid ColumnDefinitions="Auto,Auto"  RowDefinitions="AUTO,AUTO" HorizontalOptions="Start">
+
+                    <Label Grid.RowSpan="2" TextColor="{StaticResource Gray300}" Text="&#xEC8A;" FontFamily="SegoeFluent" FontAttributes="Bold" FontSize="70" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" TextColor="Gray" Text="08:45 AM" FontFamily="Cascadia" FontSize="40" VerticalOptions="End"/>
+                    <Label Grid.Row="1" Grid.Column="1" TextColor="Gray" Text="Hora Actual" FontSize="Small"  VerticalOptions="Start"/>
+                </Grid>
+
+                <Label Text="Hoy:" Margin="0,40,0,0"/>
+                <Label Text="20/05/2025" FontSize="Medium" />
+
+            </StackLayout>
+        </Border>
+
+
+        <Border Grid.Column="1" BackgroundColor="White" StrokeShape="RoundRectangle 5" Padding="10" Stroke="Transparent" VerticalOptions="Start">
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="AUTO,AUTO,Auto"  >
+                <Label Text="45" FontSize="Header"/>
+                <toolkit:AvatarView Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"
+               ImageSource="{Binding Foto}"
+               BackgroundColor="{StaticResource Gray100}"
+               BorderWidth="1"
+               CornerRadius="70"
+               Padding="5"
+               Text="&#xE716;" FontFamily="SegoeFluent"  FontSize="Medium"  TextColor="{StaticResource Primary}"/>
+
+                <Label Grid.Row="1" Text="Total Empleados"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="1" BackgroundColor="White" StrokeShape="RoundRectangle 5" Padding="10" Stroke="Transparent" VerticalOptions="Start">
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="AUTO,AUTO,Auto"  >
+                <Label Text="5" FontSize="Header"/>
+                <toolkit:AvatarView Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"
+       
+               BackgroundColor="{StaticResource Gray100}"
+               BorderWidth="1"
+               CornerRadius="70"
+               Padding="5"
+               Text="&#xE805;" FontFamily="SegoeFluent"  FontSize="Medium"  TextColor="{StaticResource Primary}"/>
+
+                <Label Grid.Row="1" Text="Llegadas tarde"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="2" Grid.Row="0" BackgroundColor="White" StrokeShape="RoundRectangle 5" Padding="10" Stroke="Transparent" VerticalOptions="Start">
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="AUTO,AUTO,Auto"  >
+                <Label Text="38" FontSize="Header"/>
+                <toolkit:AvatarView Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"
+               BackgroundColor="{StaticResource Gray100}"
+               BorderWidth="1"
+               CornerRadius="70"
+               Padding="5"
+               Text="&#xE916;" FontFamily="SegoeFluent"  FontSize="Medium"  TextColor="{StaticResource Primary}"/>
+
+                <Label Grid.Row="1" Text="A tiempo"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="2" Grid.Row="1" BackgroundColor="White" StrokeShape="RoundRectangle 5" Padding="10" Stroke="Transparent" VerticalOptions="Start">
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="AUTO,AUTO,Auto"  >
+                <Label Text="2" FontSize="Header"/>
+                <toolkit:AvatarView Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"
+                ImageSource="{Binding Foto}"
+                BackgroundColor="{StaticResource Gray100}"
+                BorderWidth="1"
+                CornerRadius="70"
+                Padding="5"
+                Text="&#xF3B1;" FontFamily="SegoeFluent"  FontSize="Medium"  TextColor="{StaticResource Primary}"/>
+
+                <Label Grid.Row="1" Text="Salidas anticipadas"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="3" Grid.Row="0" BackgroundColor="White" StrokeShape="RoundRectangle 5" Padding="10" Stroke="Transparent" VerticalOptions="Start">
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="AUTO,AUTO,Auto"  >
+                <Label Text="3" FontSize="Header"/>
+                <toolkit:AvatarView Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"
+                ImageSource="{Binding Foto}"
+                BackgroundColor="{StaticResource Gray100}"
+                BorderWidth="1"
+                CornerRadius="70"
+                Padding="5"
+                Text="&#xE8F8;" FontFamily="SegoeFluent"  FontSize="Medium"  TextColor="{StaticResource Primary}"/>
+
+                <Label Grid.Row="1" Text="Salidas Pendientes"/>
+            </Grid>
+        </Border>
+
+
+        <Border Grid.Column="3" Grid.Row="1" BackgroundColor="White" StrokeShape="RoundRectangle 5" Padding="10" Stroke="Transparent" VerticalOptions="Start" >
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="AUTO,AUTO,Auto"  >
+                <Label Text="2" FontSize="Header"/>
+                <toolkit:AvatarView Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"
+                ImageSource="{Binding Foto}"
+                BackgroundColor="{StaticResource Gray100}"
+                BorderWidth="1"
+                CornerRadius="70"
+                Padding="5"
+                Text="&#xF28B;" FontFamily="SegoeFluent"  FontSize="Medium"  TextColor="{StaticResource Primary}"/>
+
+                <Label Grid.Row="1" Text="Ausentes"/>
+            </Grid>
+        </Border>
+
+
+        <chart:SfCartesianChart Grid.Row="2" Grid.ColumnSpan="3"   >
+
+
+            <chart:SfCartesianChart.Title>
+                <Label Text="Total registros últimos 5 meses"/>
+            </chart:SfCartesianChart.Title>
+
+            <chart:SfCartesianChart.Legend>
+                <chart:ChartLegend/>
+            </chart:SfCartesianChart.Legend>
+
+            <chart:SfCartesianChart.XAxes>
+                <chart:CategoryAxis>
+                    <chart:CategoryAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle FontAttributes="Bold" FontSize="15"/>
+                    </chart:CategoryAxis.LabelStyle>
+
+                </chart:CategoryAxis>
+            </chart:SfCartesianChart.XAxes>
+
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis>
+                    <chart:NumericalAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle FontAttributes="Bold" />
+                    </chart:NumericalAxis.LabelStyle>
+
+
+                    <chart:NumericalAxis.Title>
+                        <chart:ChartAxisTitle Text="Asistencias"/>
+                    </chart:NumericalAxis.Title>
+                </chart:NumericalAxis>
+            </chart:SfCartesianChart.YAxes>
+
+            <!--Initialize the series for chart-->
+            <chart:ColumnSeries 
+            ItemsSource="{Binding AsistenciasMeses}"
+            XBindingPath="Mes" 
+            CornerRadius="10"
+            YBindingPath="TotalAsistencias"
+            EnableTooltip="True"
+            ShowDataLabels="True"
+            Opacity="0.7"
+                           
+                        Fill="{StaticResource Primary}"
+                      >
+
+
+
+                <chart:ColumnSeries.DataLabelSettings>
+                    <chart:CartesianDataLabelSettings LabelPlacement="Inner" />
+                </chart:ColumnSeries.DataLabelSettings>
+            </chart:ColumnSeries>
+
+        </chart:SfCartesianChart>
+        <BoxView VerticalOptions="End"/>
+
+    </Grid>
+
+
+</ContentPage>
