@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using AttendanceDashboard.Models;
+using System.Collections.ObjectModel;
 
 namespace AttendanceDashboard
 {
